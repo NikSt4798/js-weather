@@ -1,5 +1,3 @@
-import { expect, it } from "@jest/globals";
-import { describe } from "yargs";
 import { greet } from "./index";
 
 describe("Check start function", () => {
