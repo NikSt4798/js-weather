@@ -2,12 +2,13 @@
   "name": "js-weather",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000j\u0000s\u0000-\u0000w\u0000e\u0000a\u0000t\u0000h\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.7",
-    "babel": "^6.23.0",
+    "@types/jest": "^26.0.18",
     "babel-jest": "^26.6.3",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
@@ -15,12 +16,17 @@
     "husky": "^4.3.5",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
-    "prettier": "^2.2.1"
+    "lodash": "^4.17.20",
+    "node-static": "^0.7.11",
+    "prettier": "^2.2.1",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0"
   },
   "scripts": {
     "test": "jest",
     "lint": "prettier --check . && eslint .",
-    "lint:fix": "prettier --write . && eslint . --fix"
+    "lint:fix": "prettier --write . && eslint . --fix",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -39,7 +45,10 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md,json}": "prettier --write"
+    "*.js": [
+      "eslint . --fix",
+      "jest -o"
+    ],
+    "*.{js,css,md,json}": "prettier --write ."
   }
 }
