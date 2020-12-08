@@ -1,0 +1,25 @@
+{
+  "name": "js-weather",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000j\u0000s\u0000-\u0000w\u0000e\u0000a\u0000t\u0000h\u0000e\u0000r\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikSt4798/js-weather.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikSt4798/js-weather/issues"
+  },
+  "homepage": "https://github.com/NikSt4798/js-weather#readme"
+}
