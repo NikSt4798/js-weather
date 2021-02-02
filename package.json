@@ -48,6 +48,6 @@
     "*.js": [
       "eslint . --fix"
     ],
-    "*.{js,css,md,json}": "prettier --write ."
+    "*.{js,css,md,json,html}": "prettier --write ."
   }
 }
