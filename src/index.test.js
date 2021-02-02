@@ -1,7 +1,7 @@
-import { greet } from "./index";
+import { showCityWeather } from "./index";
 
 describe("Check start function", () => {
-  it("Says hello console", () => {
-    expect(greet()).toBe("Hello console");
+  it("Check function", () => {
+    expect(typeof showCityWeather).toBe("function");
   });
 });
