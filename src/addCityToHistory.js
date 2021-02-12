@@ -6,28 +6,23 @@ export function addCityToHistory(city) {
 
   const paragraphs = historyDiv.querySelectorAll("p");
 
-  let hasThisCity = false;
+  const cityNames = Array.from(paragraphs).map((x) => x.innerText);
 
-  paragraphs.forEach((element) => {
-    if (element.innerText === city) {
-      hasThisCity = true;
-      return;
-    }
-  });
-
-  if (hasThisCity) return;
+  if (cityNames.includes(city)) return;
 
   const p = document.createElement("p");
   p.innerText = city;
 
-  p.addEventListener("click", async function () {
-    const weather = await getWeatherByCity(this.innerText);
-    await showCityWeather(weather);
-  });
+  p.addEventListener("click", onCityClick);
 
   historyDiv.insertBefore(p, paragraphs[0]);
 
   if (paragraphs.length >= 10) {
     paragraphs[paragraphs.length - 1].remove();
   }
+}
+
+export async function onCityClick() {
+  const weather = await getWeatherByCity(this.innerText);
+  await showCityWeather(weather);
 }
