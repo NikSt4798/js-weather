@@ -1,9 +1,10 @@
 import { addCityToHistory, onCityClick } from "./addCityToHistory";
-import { getWeatherByCity } from "./getWeatherByCity";
-import { showCityWeather } from "./showCityWeather";
 
-jest.fn(getWeatherByCity);
-jest.fn(showCityWeather);
+const utils1 = require(`./getWeatherByCity`);
+utils1.getWeatherByCity = jest.fn();
+
+const utils2 = require("./showCityWeather");
+utils2.showCityWeather = jest.fn();
 
 describe("Add new city to history", () => {
   const Cities = [
@@ -44,11 +45,11 @@ describe("Add new city to history", () => {
     });
   });
 
-  it("should show weather by clicking on city", () => {
-    onCityClick();
+  it("should show weather by clicking on city", async () => {
+    await onCityClick();
 
-    expect(getWeatherByCity).toBeCalled();
-    expect(showCityWeather).toBeCalled();
+    expect(utils1.getWeatherByCity).toBeCalled();
+    expect(utils2.showCityWeather).toBeCalled();
   });
 
   afterEach(() => {
