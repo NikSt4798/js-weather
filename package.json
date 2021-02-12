@@ -25,7 +25,7 @@
     "webpack-cli": "^4.2.0"
   },
   "scripts": {
-    "test": "jest --passWithNoTests --o",
+    "test": "jest --coverage",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint . --fix",
     "build": "webpack"
@@ -50,6 +50,6 @@
     "*.js": [
       "eslint . --fix"
     ],
-    "*.{js,css,md,json,html}": "prettier --write ."
+    "*.{js,css,md,json}": "prettier --write ."
   }
 }
