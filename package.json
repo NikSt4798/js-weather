@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "��#\u0000 \u0000j\u0000s\u0000-\u0000w\u0000e\u0000a\u0000t\u0000h\u0000e\u0000r\u0000\r\u0000 \u0000",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-transform-runtime": "^7.12.1",
@@ -23,7 +25,7 @@
     "webpack-cli": "^4.2.0"
   },
   "scripts": {
-    "test": "jest --passWithNoTests",
+    "test": "jest --coverage",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint . --fix",
     "build": "webpack"
@@ -48,6 +50,6 @@
     "*.js": [
       "eslint . --fix"
     ],
-    "*.{js,css,md,json,html}": "prettier --write ."
+    "*.{js,css,md,json}": "prettier --write ."
   }
 }
