@@ -1,8 +1,11 @@
 import { getWeatherByCity } from "./getWeatherByCity.js";
 import { showCityWeather } from "./showCityWeather.js";
 import { getLocalWeather } from "./getLocalWeather.js";
+import { createIndex } from "./createIndex.js";
 
 (async function () {
+  createIndex();
+
   const localWeather = await getLocalWeather();
 
   await showCityWeather(localWeather);

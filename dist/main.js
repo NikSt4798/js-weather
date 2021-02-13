@@ -5,69 +5,85 @@
       n = await fetch(t);
     return await n.json();
   }
-  async function t(n) {
-    const a = document.querySelector(".weather");
-    a.innerHTML = "";
+  async function t() {
+    const t = await e(this.innerText);
+    await n(t);
+  }
+  async function n(e) {
+    const n = document.querySelector(".weather");
+    n.innerHTML = "";
     const c = document.querySelector(".map");
     c.innerHTML = "";
-    const i = document.createElement("p");
-    if (void 0 === n.name)
+    const a = document.createElement("p");
+    if (void 0 === e.name)
       return (
-        (i.innerText = "Can't find this city, try again."),
-        void a.appendChild(i)
+        (a.innerText = "Can't find this city, try again."),
+        void n.appendChild(a)
       );
-    (i.innerText = `Showing weather for ${n.name}`), a.appendChild(i);
-    const r = document.createElement("p");
-    (r.innerText = `Current weather is ${n.main.temp} degrees of Celcium`),
-      a.appendChild(r);
-    const o = document.createElement("img"),
-      d = n.weather[0].icon;
-    (o.src = `https://openweathermap.org/img/wn/${d}@2x.png`),
-      a.appendChild(o),
+    (a.innerText = `Showing weather for ${e.name}`), n.appendChild(a);
+    const o = document.createElement("p");
+    (o.innerText = `Current weather is ${e.main.temp} degrees of Celcium`),
+      n.appendChild(o);
+    const i = document.createElement("img"),
+      d = e.weather[0].icon;
+    (i.src = `https://openweathermap.org/img/wn/${d}@2x.png`),
+      n.appendChild(i),
       (document.querySelector(
         "#favicon"
       ).href = `https://openweathermap.org/img/wn/${d}@2x.png`);
-    const s = document.createElement("img");
-    (s.src = `https://static-maps.yandex.ru/1.x/?ll=${n.coord.lon},${n.coord.lat}&size=450,450&z=11&l=map`),
-      c.appendChild(s),
-      (function (n) {
-        const a = document.querySelector(".history"),
-          c = a.querySelectorAll("p");
-        let i = !1;
+    const r = document.createElement("img");
+    (r.src = `https://static-maps.yandex.ru/1.x/?ll=${e.coord.lon},${e.coord.lat}&size=450,450&z=11&l=map`),
+      c.appendChild(r),
+      (function (e) {
+        const n = document.querySelector(".history"),
+          c = n.querySelectorAll("p");
         if (
-          (c.forEach((e) => {
-            e.innerText !== n || (i = !0);
-          }),
-          i)
+          Array.from(c)
+            .map((e) => e.innerText)
+            .includes(e)
         )
           return;
-        const r = document.createElement("p");
-        (r.innerText = n),
-          r.addEventListener("click", async function () {
-            const n = await e(this.innerText);
-            await t(n);
-          }),
-          a.insertBefore(r, c[0]),
+        const a = document.createElement("p");
+        (a.innerText = e),
+          a.addEventListener("click", t),
+          n.insertBefore(a, c[0]),
           c.length >= 10 && c[c.length - 1].remove();
-      })(n.name);
+      })(e.name);
+  }
+  async function c(e) {
+    const t = await fetch(e);
+    return await t.json();
   }
   !(async function () {
-    const n = await (async function () {
-      let e = "https://get.geojs.io/v1/ip/geo.json",
-        t = await fetch(e),
-        n = await t.json();
-      return (
-        (e = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${n.latitude}&lon=${n.longitude}&appid=458b6f24d9bec1db57c2f337dc35dbcc`),
-        (t = await fetch(e)),
-        (n = await t.json()),
-        n
+    !(function () {
+      const e = document.createElement("input");
+      (e.type = "text"), (e.className = "city"), document.body.appendChild(e);
+      const t = document.createElement("button");
+      (t.id = "submit"), (t.innerText = "Submit"), document.body.appendChild(t);
+      const n = document.createElement("div");
+      (n.className = "weather"), document.body.appendChild(n);
+      const c = document.createElement("div");
+      (c.className = "map"), document.body.appendChild(c);
+      const a = document.createElement("div");
+      (a.className = "history"), document.body.appendChild(a);
+      const o = document.createElement("link");
+      (o.id = "favicon"), document.head.appendChild(o);
+      const i = document.createElement("title");
+      (i.innerText = "Weather"), document.head.appendChild(i);
+    })();
+    const t = await (async function () {
+      let e = await c("https://get.geojs.io/v1/ip/geo.json");
+      const t = e.latitude,
+        n = e.longitude;
+      return await c(
+        `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${t}&lon=${n}&appid=458b6f24d9bec1db57c2f337dc35dbcc`
       );
     })();
-    await t(n),
+    await n(t),
       document.querySelector("#submit").addEventListener("click", async () => {
-        const n = document.querySelector(".city"),
-          a = await e(n.value);
-        await t(a);
+        const t = document.querySelector(".city"),
+          c = await e(t.value);
+        await n(c);
       });
   })();
 })();
