@@ -4,4 +4,4 @@
 При клике по строчке города в списке он видит погоду в выбранном городе
 Кроме информации о погоде в центре страницы отображается карта для введенного адреса
 
-https://img.shields.io/gitlab/coverage/nikst4798/js-weather/master?style=plastic
+![badge](https://img.shields.io/gitlab/coverage/NikSt4798/js-weather/master?style=plastic)
