@@ -11,8 +11,6 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-unused-vars": "off",
-    "no-prototype-builtins": "off",
     "id-length": 2,
     "no-sequences": 2
   },
