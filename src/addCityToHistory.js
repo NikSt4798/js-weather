@@ -6,16 +6,18 @@ export function addCityToHistory(city) {
 
   const paragraphs = historyDiv.querySelectorAll("p");
 
-  const cityNames = Array.from(paragraphs).map((x) => x.innerText);
+  const cityNames = Array.from(paragraphs).map(
+    (paragraph) => paragraph.innerText
+  );
 
   if (cityNames.includes(city)) return;
 
-  const p = document.createElement("p");
-  p.innerText = city;
+  const paragraph = document.createElement("p");
+  paragraph.innerText = city;
 
-  p.addEventListener("click", onCityClick);
+  paragraph.addEventListener("click", onCityClick);
 
-  historyDiv.insertBefore(p, paragraphs[0]);
+  historyDiv.insertBefore(paragraph, paragraphs[0]);
 
   if (paragraphs.length >= 10) {
     paragraphs[paragraphs.length - 1].remove();
