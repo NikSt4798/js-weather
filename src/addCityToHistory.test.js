@@ -51,8 +51,4 @@ describe("Add new city to history", () => {
     expect(utils1.getWeatherByCity).toBeCalled();
     expect(utils2.showCityWeather).toBeCalled();
   });
-
-  afterEach(() => {
-    document.InnerHTML = "";
-  });
 });

@@ -1,4 +1,14 @@
 export function createIndex() {
+  console.log("Creating index");
+
+  const favicon = document.createElement("link");
+  favicon.id = "favicon";
+  document.head.appendChild(favicon);
+
+  const title = document.createElement("title");
+  title.innerText = "Weather";
+  document.head.appendChild(title);
+
   const city = document.createElement("input");
   city.type = "text";
   city.className = "city";
@@ -20,12 +30,4 @@ export function createIndex() {
   const history = document.createElement("div");
   history.className = "history";
   document.body.appendChild(history);
-
-  const favicon = document.createElement("link");
-  favicon.id = "favicon";
-  document.head.appendChild(favicon);
-
-  const title = document.createElement("title");
-  title.innerText = "Weather";
-  document.head.appendChild(title);
 }
