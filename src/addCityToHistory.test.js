@@ -7,7 +7,7 @@ const utils2 = require("./showCityWeather");
 utils2.showCityWeather = jest.fn();
 
 describe("Add new city to history", () => {
-  const Cities = [
+  const cities = [
     "Moscow",
     "London",
     "Paris",
@@ -27,7 +27,7 @@ describe("Add new city to history", () => {
     document.body.appendChild(div);
   });
 
-  Cities.forEach((cityName) => {
+  cities.forEach((cityName) => {
     it(`should add ${cityName}`, () => {
       addCityToHistory(cityName);
 
@@ -38,7 +38,7 @@ describe("Add new city to history", () => {
   });
 
   it("should save up to 10 cities", () => {
-    Cities.forEach(() => {
+    cities.forEach(() => {
       const paragraphs = document.querySelectorAll("p");
 
       expect(paragraphs.length).toBe(10);
