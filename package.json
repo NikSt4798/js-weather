@@ -2,9 +2,6 @@
   "name": "js-weather",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000j\u0000s\u0000-\u0000w\u0000e\u0000a\u0000t\u0000h\u0000e\u0000r\u0000\r\u0000 \u0000",
-  "dependencies": {
-    "node-fetch": "^2.6.1"
-  },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-transform-runtime": "^7.12.1",

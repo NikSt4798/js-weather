@@ -1,7 +1,7 @@
-import { getWeatherByCity } from "./getWeatherByCity.js";
-import { showCityWeather } from "./showCityWeather.js";
-import { getLocalWeather } from "./getLocalWeather.js";
-import { createIndex } from "./createIndex.js";
+import { getWeatherByCity } from "./getWeatherByCity";
+import { showCityWeather } from "./showCityWeather";
+import { getLocalWeather } from "./getLocalWeather";
+import { createIndex } from "./createIndex";
 
 (async function () {
   createIndex();

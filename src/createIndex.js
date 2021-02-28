@@ -1,10 +1,4 @@
 export function createIndex() {
-  console.log("Creating index");
-
-  const favicon = document.createElement("link");
-  favicon.id = "favicon";
-  document.head.appendChild(favicon);
-
   const title = document.createElement("title");
   title.innerText = "Weather";
   document.head.appendChild(title);

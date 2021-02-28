@@ -1,4 +1,4 @@
-import { addCityToHistory } from "./addCityToHistory.js";
+import { addCityToHistory } from "./addCityToHistory";
 
 export async function showCityWeather(cityWeather) {
   const weatherDiv = document.querySelector(".weather");
@@ -27,9 +27,6 @@ export async function showCityWeather(cityWeather) {
   const weatherCode = cityWeather.weather[0].icon;
   img.src = `https://openweathermap.org/img/wn/${weatherCode}@2x.png`;
   weatherDiv.appendChild(img);
-
-  const favicon = document.querySelector("#favicon");
-  favicon.href = `https://openweathermap.org/img/wn/${weatherCode}@2x.png`;
 
   const map = document.createElement("img");
   map.src = `https://static-maps.yandex.ru/1.x/?ll=${cityWeather.coord.lon},${cityWeather.coord.lat}&size=450,450&z=11&l=map`;

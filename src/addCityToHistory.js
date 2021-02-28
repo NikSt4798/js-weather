@@ -1,5 +1,5 @@
-import { getWeatherByCity } from "./getWeatherByCity.js";
-import { showCityWeather } from "./showCityWeather.js";
+import { getWeatherByCity } from "./getWeatherByCity";
+import { showCityWeather } from "./showCityWeather";
 
 export function addCityToHistory(city) {
   const historyDiv = document.querySelector(".history");
