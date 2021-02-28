@@ -1,5 +1,4 @@
-import { getWeatherByCity } from "./getWeatherByCity";
-import { showCityWeather } from "./showCityWeather";
+import { onCityClick } from "./onCityClick";
 
 export function addCityToHistory(city) {
   const historyDiv = document.querySelector(".history");
@@ -22,9 +21,4 @@ export function addCityToHistory(city) {
   if (paragraphs.length >= 10) {
     paragraphs[paragraphs.length - 1].remove();
   }
-}
-
-export async function onCityClick() {
-  const weather = await getWeatherByCity(this.innerText);
-  await showCityWeather(weather);
 }

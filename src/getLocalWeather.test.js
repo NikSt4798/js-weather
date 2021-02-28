@@ -1,14 +1,15 @@
 import { getLocalWeather } from "./getLocalWeather";
-import * as getJsonFromUrlModule from "./getJsonFromUrl";
 
-const json = { longitude: 1, latitude: 2 };
-jest
-  .spyOn(getJsonFromUrlModule, "getJsonFromUrl")
-  .mockImplementation(() => json);
+const result = { longitude: 1, latitude: 2 };
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve(result),
+  })
+);
 
 describe("It sould show local weather", () => {
   it(`calls function two times`, async () => {
-    await getLocalWeather();
-    expect(getJsonFromUrlModule.getJsonFromUrl).toBeCalledTimes(2);
+    const data = await getLocalWeather();
+    expect(data).toEqual(result);
   });
 });
