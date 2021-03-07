@@ -16,8 +16,6 @@ export function addCityToHistory(city) {
   const paragraph = document.createElement("p");
   paragraph.innerText = city;
 
-  // paragraph.addEventListener("click", onCityClick);
-
   historyDiv.insertBefore(paragraph, paragraphs[0]);
 
   if (paragraphs.length >= 10) {
