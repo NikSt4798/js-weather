@@ -3,6 +3,8 @@ import { onCityClick } from "./onCityClick";
 export function addCityToHistory(city) {
   const historyDiv = document.querySelector(".history");
 
+  historyDiv.addEventListener("click", onCityClick);
+
   const paragraphs = historyDiv.querySelectorAll("p");
 
   const cityNames = Array.from(paragraphs).map(
@@ -14,7 +16,7 @@ export function addCityToHistory(city) {
   const paragraph = document.createElement("p");
   paragraph.innerText = city;
 
-  paragraph.addEventListener("click", onCityClick);
+  // paragraph.addEventListener("click", onCityClick);
 
   historyDiv.insertBefore(paragraph, paragraphs[0]);
 
