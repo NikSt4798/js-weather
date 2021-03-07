@@ -2,9 +2,11 @@ import { getWeatherByCity } from "./getWeatherByCity";
 import { showCityWeather } from "./showCityWeather";
 import { getLocalWeather } from "./getLocalWeather";
 import { createIndex } from "./createIndex";
+import { createHistory } from "./createHistory";
 
 (async function () {
   createIndex();
+  createHistory();
 
   const localWeather = await getLocalWeather();
 

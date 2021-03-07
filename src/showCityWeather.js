@@ -33,4 +33,10 @@ export async function showCityWeather(cityWeather) {
   mapDiv.appendChild(map);
 
   addCityToHistory(cityWeather.name);
+
+  let history = JSON.parse(localStorage.getItem("history"));
+  if (history?.indexOf(cityWeather.name)) {
+    history.push(cityWeather.name);
+  }
+  localStorage.setItem("history", JSON.stringify(history));
 }

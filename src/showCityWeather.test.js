@@ -1,5 +1,11 @@
 import { createIndex } from "./createIndex";
 import { showCityWeather } from "./showCityWeather";
+import { addCityToHistory } from "./addCityToHistory";
+import { createHistory } from "./createHistory";
+
+jest.mock("./addCityToHistory", () => ({
+  addCityToHistory: jest.fn(),
+}));
 
 const cityJson = {
   name: "Moscow",
@@ -20,6 +26,7 @@ const cityJson = {
 describe("Show city weather", () => {
   beforeEach(() => {
     createIndex();
+    createHistory();
   });
 
   it("should inform about city", () => {
@@ -39,11 +46,26 @@ describe("Show city weather", () => {
   });
 
   it("should add city to history", () => {
-    const utils = require("./addCityToHistory");
-    utils.addCityToHistory = jest.fn();
-
     showCityWeather(cityJson);
 
-    expect(utils.addCityToHistory).toBeCalled();
+    expect(addCityToHistory).toBeCalled();
+  });
+
+  it("should add city to local storage", () => {
+    showCityWeather(cityJson);
+
+    const history = JSON.parse(localStorage.getItem("history"));
+
+    expect(history.includes(cityJson.name)).toBeTruthy();
+  });
+
+  it("should add city to local storage once", () => {
+    showCityWeather(cityJson);
+    showCityWeather(cityJson);
+
+    const history = JSON.parse(localStorage.getItem("history"));
+    delete history[history.indexOf(cityJson.name)];
+
+    expect(history.includes(cityJson.name)).toBeFalsy();
   });
 });
