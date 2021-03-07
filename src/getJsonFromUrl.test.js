@@ -1,4 +1,4 @@
-import { getLocalWeather } from "./getLocalWeather";
+import { getJsonFromUrl } from "./getJsonFromUrl";
 
 const result = { longitude: 1, latitude: 2 };
 global.fetch = jest.fn(() =>
@@ -7,9 +7,9 @@ global.fetch = jest.fn(() =>
   })
 );
 
-describe("It should show local weather", () => {
+describe("It should return json object from given url", () => {
   it(`calls fetch two times and returns object`, async () => {
-    const data = await getLocalWeather();
+    const data = await getJsonFromUrl("https://google.com");
     expect(data).toEqual(result);
   });
 });
