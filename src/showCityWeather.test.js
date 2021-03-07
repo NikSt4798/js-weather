@@ -1,4 +1,3 @@
-import { createIndex } from "./createIndex";
 import { showCityWeather } from "./showCityWeather";
 import { addCityToHistory } from "./addCityToHistory";
 import { createHistory } from "./createHistory";
@@ -69,3 +68,13 @@ describe("Show city weather", () => {
     expect(history.includes(cityJson.name)).toBeFalsy();
   });
 });
+
+function createIndex() {
+  const weather = document.createElement("div");
+  weather.className = "weather";
+  document.body.appendChild(weather);
+
+  const map = document.createElement("div");
+  map.className = "map";
+  document.body.appendChild(map);
+}
