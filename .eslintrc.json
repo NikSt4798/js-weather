@@ -10,6 +10,9 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "rules": {},
+  "rules": {
+    "id-length": 2,
+    "no-sequences": 2
+  },
   "plugins": ["jest"]
 }
