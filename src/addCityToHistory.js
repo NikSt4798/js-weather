@@ -1,9 +1,5 @@
-import { onCityClick } from "./onCityClick";
-
 export function addCityToHistory(city) {
   const historyDiv = document.querySelector(".history");
-
-  historyDiv.addEventListener("click", onCityClick);
 
   const paragraphs = historyDiv.querySelectorAll("p");
 

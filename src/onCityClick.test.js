@@ -3,7 +3,7 @@ import { getWeatherByCity } from "./getWeatherByCity";
 import { showCityWeather } from "./showCityWeather";
 
 jest.mock("./getWeatherByCity", () => ({
-  getWeatherByCity: jest.fn(() => ({ cityName: "Moscow" })),
+  getWeatherByCity: jest.fn((cityName) => ({ cityName: cityName })),
 }));
 
 jest.mock("./showCityWeather", () => ({
@@ -12,7 +12,14 @@ jest.mock("./showCityWeather", () => ({
 
 describe("It should show weather for clicked city", () => {
   it("should show weather by clicking on city", async () => {
-    await onCityClick();
+    const mockElement = {
+      target: {
+        tagName: "P",
+        innerText: "Moscow",
+      },
+    };
+
+    await onCityClick(mockElement);
 
     expect(getWeatherByCity).toBeCalled();
     expect(showCityWeather).toBeCalledWith({ cityName: "Moscow" });

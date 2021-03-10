@@ -35,7 +35,7 @@ export async function showCityWeather(cityWeather) {
   addCityToHistory(cityWeather.name);
 
   let history = JSON.parse(localStorage.getItem("history"));
-  if (history?.indexOf(cityWeather.name)) {
+  if (history?.indexOf(cityWeather.name) == -1) {
     history.push(cityWeather.name);
   }
   localStorage.setItem("history", JSON.stringify(history));
